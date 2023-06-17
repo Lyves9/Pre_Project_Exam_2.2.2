@@ -17,7 +17,7 @@ import java.util.List;
 public class CarController {
 
     @GetMapping(value = "/cars")
-    public String printWelcome(@RequestParam("count") int count, ModelMap model) {
+    public String printCars(@RequestParam("count") int count, ModelMap model) {
         try {
             model.addAttribute("cars",
                     new CarServiceImp().getCar(new ArrayList<>(Arrays.asList(
