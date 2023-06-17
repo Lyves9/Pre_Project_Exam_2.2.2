@@ -17,7 +17,7 @@ import java.util.List;
 public class CarController {
 
     @GetMapping(value = "/cars")
-    public String printWelcome(@RequestParam("count") String count, ModelMap model) {
+    public String printWelcome(@RequestParam("count") int count, ModelMap model) {
         try {
             model.addAttribute("cars",
                     new CarServiceImp().getCar(new ArrayList<>(Arrays.asList(
@@ -26,7 +26,7 @@ public class CarController {
                             new Car("BMW", 3, Car.Color.Red),
                             new Car("Mercedes-Benz", 600, Car.Color.Red),
                             new Car("Mercedes-Benz", 500, Car.Color.Black)
-                    )), Integer.parseInt(count)));
+                    )), count));
         } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
             e.printStackTrace();
         }
