@@ -2,8 +2,19 @@ package web.model;
 
 
 public class Car {
+
+    public  enum Color {Red, Blue, Black}
+
     private String model;
     private int series;
+    private Color color;
+
+    public Car(String model, int series, Color color) {
+        this.model = model;
+        this.series = series;
+        this.color = color;
+    }
+
 
     public Car() {
     }
@@ -24,9 +35,12 @@ public class Car {
         this.series = series;
     }
 
-
-    public Car(String model, int series) {
-        this.model = model;
-        this.series = series;
+    public Color getColor() {
+        return color;
     }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
 }
