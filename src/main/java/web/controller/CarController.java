@@ -16,18 +16,15 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String printCars(@RequestParam("count") int count, ModelMap model) {
-        try {
-            model.addAttribute("cars",
-                    new CarServiceImp().getCar(new ArrayList<>(Arrays.asList(
-                            new Car("BMW", 6, Car.Color.Black),
-                            new Car("BMW", 5, Car.Color.Blue),
-                            new Car("BMW", 3, Car.Color.Red),
-                            new Car("Mercedes-Benz", 600, Car.Color.Red),
-                            new Car("Mercedes-Benz", 500, Car.Color.Black)
-                    )), count));
-        } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
-            e.printStackTrace();
-        }
+
+        model.addAttribute("cars",
+                new CarServiceImp().getCar(new ArrayList<>(Arrays.asList(
+                        new Car("BMW", 6, Car.Color.Black),
+                        new Car("BMW", 5, Car.Color.Blue),
+                        new Car("BMW", 3, Car.Color.Red),
+                        new Car("Mercedes-Benz", 600, Car.Color.Red),
+                        new Car("Mercedes-Benz", 500, Car.Color.Black)
+                )), count));
 
         return "cars";
     }
